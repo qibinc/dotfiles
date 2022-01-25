@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-./zshrc.sh
+./zsh.sh
 ./vimrc.sh
 ./brew.sh
