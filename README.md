@@ -15,7 +15,7 @@ git clone https://github.com/qibinc/dotfiles.git && cd dotfiles
 First, Install the packages (e.g., zsh, brew):
 
 ```bash
-bash install.sh
+./install.sh
 ```
 
 Then, `cd` into your local `dotfiles` repository to sync the dotfiles:
