@@ -1,0 +1,11 @@
+color ir_black
+
+set clipboard=unnamed
+
+set nospell
+
+set wrap
+
+set mouse=c
+
+set smartcase
