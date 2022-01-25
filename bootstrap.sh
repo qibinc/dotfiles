@@ -7,7 +7,7 @@ git pull origin main
 function doIt() {
     rsync --exclude ".git/" \
         --exclude ".DS_Store" \
-        --exclude "bootstrap.sh" \
+        --exclude "*.sh" \
         --exclude "README.md" \
         --exclude "LICENSE.txt" \
         -avh --no-perms . ~
