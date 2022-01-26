@@ -8,5 +8,9 @@ eval "$($HOME/.linuxbrew/bin/brew shellenv)"
 brew update
 brew upgrade
 
-brew install zsh
-brew install htop
+if ! command -v zs; then
+  brew install zsh
+fi
+if ! command -v htop; then
+  brew install htop
+fi
