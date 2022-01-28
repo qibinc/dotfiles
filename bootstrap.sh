@@ -11,8 +11,6 @@ function doIt() {
         --exclude "README.md" \
         --exclude "LICENSE.txt" \
         -avh --no-perms . ~
-    source ~/.bash_profile
-    source ~/.profile
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
@@ -38,6 +36,9 @@ if command -v exa; then
 fi
 
 if command -v bat; then
-    echo "alias cat=\"bat -p\"" >> ~/.profile
+    echo "alias cat=\"bat -pp\"" >> ~/.profile
     echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.profile
 fi
+
+source ~/.bash_profile
+source ~/.profile
