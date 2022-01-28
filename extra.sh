@@ -6,3 +6,4 @@ brew install ripgrep
 brew install jq
 brew install tldr
 brew install hyperfine
+brew install exa

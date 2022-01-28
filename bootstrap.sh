@@ -12,6 +12,7 @@ function doIt() {
         --exclude "LICENSE.txt" \
         -avh --no-perms . ~
     source ~/.bash_profile
+    source ~/.profile
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
@@ -29,4 +30,14 @@ if command -v /bin/zsh; then
     echo "set-option -g default-shell /bin/zsh" >> ~/.tmux.conf.local
 elif command -v $HOME/.linuxbrew/bin/zsh; then
     echo "set-option -g default-shell $HOME/.linuxbrew/bin/zsh" >> ~/.tmux.conf.local
+fi
+
+if command -v exa; then
+    echo "alias ls=\"exa\"" >> ~/.profile
+    echo "alias l=\"exa -l\"" >> ~/.profile
+fi
+
+if command -v bat; then
+    echo "alias cat=\"bat -p\"" >> ~/.profile
+    echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.profile
 fi

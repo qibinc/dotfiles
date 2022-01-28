@@ -3,6 +3,7 @@
 if ! command -v brew; then
   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo 'eval "$($HOME/.linuxbrew/bin/brew shellenv)"' >> $HOME/.profile
+  echo 'eval "$($HOME/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc
   eval "$($HOME/.linuxbrew/bin/brew shellenv)"
 fi
 
