@@ -24,8 +24,8 @@ else
 fi
 unset doIt
 
-if command -v /bin/zsh; then
+if command -v /bin/zsh &> /dev/null; then
     echo "set-option -g default-shell /bin/zsh" >> ~/.tmux.conf.local
-elif command -v $HOME/.linuxbrew/bin/zsh; then
+elif command -v $HOME/.linuxbrew/bin/zsh &> /dev/null; then
     echo "set-option -g default-shell $HOME/.linuxbrew/bin/zsh" >> ~/.tmux.conf.local
 fi
