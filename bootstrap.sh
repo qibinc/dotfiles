@@ -30,15 +30,20 @@ elif command -v $HOME/.linuxbrew/bin/zsh; then
     echo "set-option -g default-shell $HOME/.linuxbrew/bin/zsh" >> ~/.tmux.conf.local
 fi
 
+if command -v zsh; then
+    sh_config="$HOME/.zshrc"
+else
+    sh_config="$HOME/.bashrc"
+fi
+
 if command -v exa; then
-    echo "alias ls=\"exa\"" >> ~/.profile
-    echo "alias l=\"exa -l\"" >> ~/.profile
+    echo "alias ls=\"exa\"" >> "$sh_config"
+    echo "alias l=\"exa -l\"" >> "$sh_config"
 fi
 
 if command -v bat; then
-    echo "alias cat=\"bat -pp\"" >> ~/.profile
-    echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> ~/.profile
+    echo "alias cat=\"bat -pp\"" >> "$sh_config"
+    echo "export MANPAGER=\"sh -c 'col -bx | bat -l man -p'\"" >> "$sh_config"
 fi
 
-source ~/.bash_profile
-source ~/.profile
+source "$sh_config"
