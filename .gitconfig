@@ -1,0 +1,13 @@
+[core]
+	editor = vim
+[user]
+	name = Qibin Chen
+	email = chenqibin422@gmail.com
+[http]
+	postBuffer = 524288000
+[github]
+	user = qibinc
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
