@@ -103,12 +103,22 @@ source $ZSH/oh-my-zsh.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 
-if command -v exa &> /dev/null; then
+if command -v exa &>/dev/null; then
     alias ls="exa"
     alias l="exa -l"
 fi
 
-if command -v bat &> /dev/null; then
+if command -v bat &>/dev/null; then
     alias cat="bat -pp"
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
+
+function gpuu() {
+    gpu_id=$1
+    num_samples=$2
+    paste <(
+        for i in {0..$num_samples}; do
+            nvidia-smi -i $gpu_id | grep "%" | awk '{print $5}' | tr -d 'W'
+        done | awk '{ total += $1 } END { print total/NR"W" }'
+    ) <(nvidia-smi -i $gpu_id | grep "%" | awk '{print $6, $7}')
+}
