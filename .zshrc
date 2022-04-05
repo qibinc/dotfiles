@@ -118,7 +118,7 @@ function gpuu() {
     num_samples=$2
     paste <(
         for i in {0..$num_samples}; do
-            nvidia-smi -i $gpu_id | grep "%" | awk '{print $5}' | tr -d 'W'
+            nvidia-smi -i $gpu_id | grep "%" | cut -c 6- | awk '{print $3}' | tr -d 'W'
         done | awk '{ total += $1 } END { print total/NR"W" }'
-    ) <(nvidia-smi -i $gpu_id | grep "%" | awk '{print $6, $7}')
+    ) <(nvidia-smi -i $gpu_id | grep "%" | cut -c 6- | awk '{print $4, $5}')
 }
